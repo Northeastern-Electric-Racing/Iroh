@@ -12,8 +12,8 @@ typedef struct {
 	uint16_t size;
 } i2c_msg_t;
 
-HAL_StatusTypeDef i2c_init();
-HAL_StatusTypeDef write_current(uint16_t current);
-HAL_StatusTypeDef write_charge(uint16_t charge);
+HAL_StatusTypeDef i2c_init(I2C_HandleTypeDef *hi2c);
+HAL_StatusTypeDef write_current(I2C_HandleTypeDef *hi2c, uint16_t current);
+HAL_StatusTypeDef write_charge(I2C_HandleTypeDef *hi2c, uint16_t charge);
 
 #endif // SEVEN_SEGMENT_H

@@ -1,50 +1,51 @@
 #include "seven_segment.h"
 #include <stdint.h>
 
-/* Global i2c config */
-I2C_InitTypeDef i2c;
 
-/* I2C timing register value *sepcifically* for the MAX6958AAEE+T */
-i2c.Timing = 0x00813F50;
-i2c.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-i2c.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-i2c.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-i2c.OwnAddress1 = 0x69;
-
-HAL_StatusTypeDef i2c_init() {
-	HAL_I2C_Init(*i2c);
+HAL_StatusTypeDef i2c_init(I2C_HandleTypeDef *hi2c) {
+	return HAL_I2C_Init(hi2c);
 }
 
-HAL_StatusTypeDef write_digit(i2c_msg_t *msg) {
-	return HAL_I2C_Mem_Write(*i2c, 0111000, msg->mem_address, 0x8, msg->data, msg->size, 1000);
+HAL_StatusTypeDef write_digit(I2C_HandleTypeDef *hi2c, i2c_msg_t *msg) {
+	return HAL_I2C_Mem_Write(hi2c, 0111000, msg->mem_address, 0x8, msg->data, msg->size, 1000);
 }
 
-HAL_StatusTypeDef write_current(uint16_t current) {
+HAL_StatusTypeDef write_current(I2C_HandleTypeDef *hi2c, uint16_t current) {
 	/* Send first digit */
-	i2c_msg_t msg;
-	msg.mem_address = 0x20;
-	msg.data = (current - (current % 10)) / 10;
-	msg.size = sizeof(msg.data);
-	write_digit(msg);
+	i2c_msg_t msg1 = {
+		.mem_address = 0x20,
+		.data = {(current - (current % 10)) / 10},
+		.size = sizeof(int[8]),
+	};
+	write_digit(hi2c, &msg1);
 
 	/* Send second digit */
-	msg.mem_address = 0x21;
-	msg.data = current % 10;
-	msg.size = sizeof(msg.data);
-	write_digit(msg);
+	i2c_msg_t msg2 = {
+		.mem_address = 0x21,
+		.data = {current % 10},
+		.size = sizeof(int[8]),
+	};
+	write_digit(hi2c, &msg2);
+	
+	return HAL_OK;
 }
 
-HAL_StatusTypeDef write_charge(uint16_t charge) {
+HAL_StatusTypeDef write_charge(I2C_HandleTypeDef *hi2c, uint16_t charge) {
 	/* Send first digit */
-	i2c_msg_t msg;
-	msg.mem_address = 0x20;
-	msg.data = (charge - (charge % 10)) / 10;
-	msg.size = sizeof(msg.data);
-	write_digit(msg);
+	i2c_msg_t msg1 = {
+		.mem_address = 0x22,
+		.data = {(charge - (charge % 10)) / 10},
+		.size = sizeof(int[8]),
+	};
+	write_digit(hi2c, &msg1);
 
 	/* Send second digit */
-	msg.mem_address = 0x24;
-	msg.data = charge % 10;
-	msg.size = sizeof(msg.data);
-	write_digit(msg);
+	i2c_msg_t msg2 = {
+		.mem_address = 0x23,
+		.data = {charge % 10},
+		.size = sizeof(int[8]),
+	};
+	write_digit(hi2c, &msg2);
+
+	return HAL_OK;
 }
