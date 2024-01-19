@@ -1,4 +1,4 @@
-# Axon
+# Iroh
 > FreeRTOS Application to control the charging of the accumulator
 
 ## Setting up Docker Environment
