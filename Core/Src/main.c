@@ -122,7 +122,6 @@ int main(void)
   /* USER CODE END RTOS_TIMERS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
-  battery_info_queue = osMessageQueueNew()
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
