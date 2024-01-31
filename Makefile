@@ -133,7 +133,7 @@ AS_INCLUDES =  \
 # C includes
 C_INCLUDES =  \
 -ICore/Inc \
--IDrivers/Embedded-Base/platforms/stm32g431/Include \
+-IDrivers/Embedded-Base/platforms/stm32g431/include \
 -IDrivers/STM32G4xx_HAL_Driver/Inc \
 -IDrivers/STM32G4xx_HAL_Driver/Inc/Legacy \
 -IMiddlewares/Third_Party/FreeRTOS/Source/include \
