@@ -1,3 +1,5 @@
+/* Drivers for the seven segment display */
+
 #include "seven_segment.h"
 #include <stdint.h>
 

@@ -41,6 +41,8 @@ Core/Src/app_freertos.c \
 Core/Src/stm32g4xx_it.c \
 Core/Src/stm32g4xx_hal_msp.c \
 Core/Src/seven_segment.c \
+Core/Src/switch.c \
+Core/Src/tasks.c \
 Drivers/Embedded-Base/platforms/stm32g431/src/fdcan.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c \
@@ -61,6 +63,7 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c \
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c \
 Core/Src/system_stm32g4xx.c \
 Middlewares/Third_Party/FreeRTOS/Source/croutine.c \
 Middlewares/Third_Party/FreeRTOS/Source/event_groups.c \
