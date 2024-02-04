@@ -20,8 +20,4 @@ HAL_StatusTypeDef i2c_init(I2C_HandleTypeDef *hi2c);
 HAL_StatusTypeDef write_current(I2C_HandleTypeDef *hi2c, uint16_t current);
 HAL_StatusTypeDef write_charge(I2C_HandleTypeDef *hi2c, uint16_t charge);
 
-void vSendBmsData(void* pv_params);
-extern osThreadId_t send_bms_data_handle;
-extern const osThreadAttr_t send_bms_data_attributes;
-
 #endif // SEVEN_SEGMENT_H

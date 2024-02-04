@@ -51,17 +51,3 @@ HAL_StatusTypeDef write_charge(I2C_HandleTypeDef *hi2c, uint16_t charge) {
 
 	return HAL_OK;
 }
-
-//RTOS Task for sending BMS data to the 7-seg
-
-const osThreadAttr_t send_bms_data_attributes = {
-	.name = "SendBmsData",
-	.stack_size = 128 * 8,
-	.priority = (osPriority_t)osPriorityAboveNormal4
-};
-
-void vSendBmsData(void* pv_params) {
-	for(;;) {
-
-	}
-}
