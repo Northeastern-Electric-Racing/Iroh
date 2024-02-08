@@ -48,6 +48,8 @@ I2C_HandleTypeDef hi2c2;
 
 UART_HandleTypeDef huart2;
 
+GPIO_InitTypeDef GPIO_InitStruct;
+
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
@@ -343,7 +345,6 @@ static void MX_USART2_UART_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
 /* USER CODE BEGIN MX_GPIO_Init_1 */
 /* USER CODE END MX_GPIO_Init_1 */
 
