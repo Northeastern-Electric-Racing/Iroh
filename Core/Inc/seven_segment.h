@@ -5,6 +5,10 @@
 
 #include "stm32g4xx_hal.h"
 #include "stm32g4xx_hal_i2c.h"
+#include "cmsis_os.h"
+#include "seven_segment.h"
+#include "fdcan.h"
+#include "queues.h"
 
 typedef struct {
 	uint16_t mem_address;	//internal memory address

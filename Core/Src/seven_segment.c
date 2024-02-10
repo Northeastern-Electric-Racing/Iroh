@@ -3,7 +3,7 @@
 #include "seven_segment.h"
 #include <stdint.h>
 
-
+//I2C Drivers
 HAL_StatusTypeDef i2c_init(I2C_HandleTypeDef *hi2c) {
 	return HAL_I2C_Init(hi2c);
 }

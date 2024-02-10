@@ -1,13 +1,13 @@
 /* All RTOS tasks are defined here */
 
-#include "tasks.h"
+#include "iroh_tasks.h"
 #include "queues.h"
 #include "seven_segment.h"
 
 static I2C_HandleTypeDef* hi2c;
 
 osThreadId_t send_bms_data_handle;
-const osThreadAttr_t send_bms_data_handle_attributes = {
+const osThreadAttr_t send_bms_data_attributes = {
 	.name = "SendBmsData",
 	.stack_size = 128 * 8,
 	.priority = (osPriority_t)osPriorityAboveNormal4

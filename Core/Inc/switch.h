@@ -10,6 +10,6 @@
 #define SWITCH_3_PIN GPIO_PIN_6
 #define SWITCH_4_PIN GPIO_PIN_7
 
-bool get_switch(GPIO_InitTypeDef, uint8_t);
+bool get_switch(GPIO_InitTypeDef *init, uint8_t pin);
 
 #endif
