@@ -3,8 +3,8 @@
 #define BMS_DATA_QUEUE_SIZE 8
 
 typedef struct {
-	uint16_t SoC;
-	uint16_t current;
+	uint8_t SoC;
+	uint8_t current;
 } bms_data_t;
 
 extern osMessageQueueId_t bms_data_queue;
