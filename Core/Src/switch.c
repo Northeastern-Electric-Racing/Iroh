@@ -1,6 +1,8 @@
+/* Controls for the switch on the Charger board */
+
 #include "switch.h"
 
-bool get_switch(GPIO_InitTypeDef init, uint8_t pin)
+bool get_switch(GPIO_InitTypeDef *init, uint8_t pin)
 {
     switch (pin)
     {
