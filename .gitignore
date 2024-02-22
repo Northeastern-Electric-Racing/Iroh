@@ -1,5 +1,8 @@
 # https://github.com/github/gitignore/blob/master/C.gitignore
 
+# Drivers
+Drivers/Embedded-Base/
+
 # VSCode files
 .vs/
 .vscode/
