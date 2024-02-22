@@ -24,6 +24,7 @@
 /* USER CODE BEGIN Includes */
 #include "queues.h"
 #include "iroh_tasks.h"
+#include "can.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -117,7 +118,7 @@ int main(void)
   osKernelInitialize();
 
   /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
+  init_iroh_can(&hfdcan1);
   /* USER CODE END RTOS_MUTEX */
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */

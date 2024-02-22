@@ -1,12 +1,6 @@
 /* Drivers for the seven segment display */
 
 #include "seven_segment.h"
-#include <stdint.h>
-
-//I2C Drivers
-HAL_StatusTypeDef i2c_init(I2C_HandleTypeDef *hi2c) {
-	return HAL_I2C_Init(hi2c);
-}
 
 HAL_StatusTypeDef write_digit(I2C_HandleTypeDef *hi2c, i2c_msg_t *msg) {
 	return HAL_I2C_Mem_Write(hi2c, 0111000, msg->mem_address, 0x8, msg->data, msg->size, 1000);

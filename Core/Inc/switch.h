@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "stm32g4xx_hal.h"
+#include "stm32g4xx_hal_gpio.h"
 
 #define SWITCH_1_PIN GPIO_PIN_4
 #define SWITCH_2_PIN GPIO_PIN_5
