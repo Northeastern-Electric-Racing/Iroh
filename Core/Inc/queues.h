@@ -12,4 +12,13 @@ typedef struct {
 
 extern osMessageQueueId_t bms_data_queue;
 
+#define ERROR_QUEUE_SIZE 8
+
+typedef struct {
+	uint8_t code;
+	char msg[20];
+} iroh_error_t;
+
+extern osMessageQueueId_t error_queue;
+
 #endif

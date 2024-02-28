@@ -24,6 +24,7 @@
 /* USER CODE BEGIN Includes */
 #include "queues.h"
 #include "iroh_tasks.h"
+#include "can.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,6 +60,7 @@ const osThreadAttr_t defaultTask_attributes = {
 };
 /* USER CODE BEGIN PV */
 osMessageQueueId_t bms_data_queue;
+osMessageQueueId_t error_queue;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -110,7 +112,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_FDCAN1_Init();
   /* USER CODE BEGIN 2 */
-
+  init_iroh_can(&hfdcan1);
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -130,6 +132,7 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_QUEUES */
   bms_data_queue = osMessageQueueNew(BMS_DATA_QUEUE_SIZE, sizeof(bms_data_t), NULL);
+  error_queue = osMessageQueueNew(ERROR_QUEUE_SIZE, sizeof(iroh_error_t), NULL);
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
